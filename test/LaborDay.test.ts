@@ -1,5 +1,4 @@
 import { expect } from "chai";
-import { ContractFactory } from "ethers";
 import { ethers } from "hardhat";
 
 describe("LaborDay", function () {
