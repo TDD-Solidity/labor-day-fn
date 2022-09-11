@@ -7,13 +7,14 @@ use(solidity)
 describe('ColorAverager', function () {
   let colorAverager
 
+  beforeEach(async () => {
+    const ColorAverager_contract = await ethers.getContractFactory(
+      'ColorAverager',
+    )
+    colorAverager = await ColorAverager_contract.deploy()
+  })
+  
   describe('averageColors', function () {
-    beforeEach(async () => {
-      const ColorAverager_contract = await ethers.getContractFactory(
-        'ColorAverager',
-      )
-      colorAverager = await ColorAverager_contract.deploy()
-    })
 
     it('averages same colors to be the same', async () => {
 
@@ -26,7 +27,18 @@ describe('ColorAverager', function () {
         expect(await colorAverager.averageColors('#999999', '#777777')).to.equal('#888888');
         expect(await colorAverager.averageColors('#777777', '#333333')).to.equal('#555555');
 
-
     })
   })
+
+  describe('uintToHexString', () => {
+      
+    it('converts uints to hex strings', async () => {
+      
+      expect(await colorAverager.uintToHexString(1)).to.equal('01');
+      expect(await colorAverager.uintToHexString(100)).to.equal('64');
+
+
+  })
+
+})
 })

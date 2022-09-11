@@ -36,7 +36,7 @@ library ColorAverager {
 
     }
 
-    function uintToHexString(uint i) internal pure returns (string memory) {
+    function uintToHexString(uint i) public pure returns (string memory) {
         if (i == 0) return "00";
         if (i < 10) return string(abi.encodePacked("0", Strings.toString(i)));
         uint j = i;
