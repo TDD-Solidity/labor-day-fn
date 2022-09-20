@@ -32,7 +32,7 @@ describe('TreeHelpers', function () {
   let fiftyYearOldBirthday_s;
 
   let owner;
-  
+
   // quick fix to let gas reporter fetch data from gas station & coinmarketcap
   before(async () => {
     [owner] = await ethers.getSigners();
@@ -240,6 +240,35 @@ describe('TreeHelpers', function () {
         expect(result).to.equal(expectedOutput)
       })
 
+    })
+
+  })
+
+  describe('uintToString function', () => {
+    const testCases = [
+      [utils.parseEther('0'), 1],
+      [utils.parseEther('1'), 1],
+      [utils.parseEther('2'), 2],
+      [utils.parseEther('3'), 3],
+      [utils.parseEther('4'), 4],
+      [utils.parseEther('5'), 4],
+      [utils.parseEther('6'), 5],
+      [utils.parseEther('7'), 5],
+      [utils.parseEther('8'), 5],
+      [utils.parseEther('9'), 6],
+      [utils.parseEther('12'), 6],
+      [utils.parseEther('13'), 6],
+      [utils.parseEther('20'), 7],
+      [utils.parseEther('21'), 7],
+      [utils.parseEther('33'), 8],
+      [utils.parseEther('34'), 8],
+      [utils.parseEther('35'), 9],
+    ]
+
+    testCases.forEach(testCase => {
+      it('converts uint to string', () => {
+
+      })
     })
 
   })

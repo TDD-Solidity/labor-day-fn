@@ -6,6 +6,7 @@
   "scripts": {
     "start": "hardhat node",
     "test": "hardhat test",
+    "clean": "hardhat clean",
     "cov": "hardhat coverage",
     "cov1": "hardhat coverage --testfiles ./test/ColorAverager.test.js",
     "build": "hardhat compile"
